@@ -1,13 +1,13 @@
 import React from "react";
 import "./App.css";
 import NavBar from "./components/NavBar";
-import Jumbotron from "./components/Jumbotron";
+import Books from "./pages/Books";
 
 function App() {
   return (
     <div>
       <NavBar />
-      <Jumbotron />
+      <Books />
     </div>
   );
 }
