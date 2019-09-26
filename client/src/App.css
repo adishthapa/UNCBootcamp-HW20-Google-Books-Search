@@ -19,6 +19,34 @@
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.blue {
+  color: #4285f4;
+}
+
+.red {
+  color: #db4437;
+}
+
+.yellow {
+  color: #f4b400;
+}
+
+.green {
+  color: #0f9d58;
+}
+
+a {
+  color: #202529;
+}
+
+a:hover {
+  color: black;
 }
