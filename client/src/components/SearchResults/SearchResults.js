@@ -1,9 +1,8 @@
 import React from "react";
 
-function SearchResults({ results }) {
+function SearchResults({ results, handleSaveBook }) {
   return (
     <div>
-      {console.log(results)}
       <h3 className="pb-3">Results</h3>
       <div className="row">
         <div className="col">
@@ -41,14 +40,27 @@ function SearchResults({ results }) {
                       View
                     </a>
                   </button>
-                  <button type="button" className="btn btn-secondary m-2">
+                  <button
+                    type="button"
+                    className="btn btn-secondary m-2"
+                    data-title={result.volumeInfo.title}
+                    data-authors={result.volumeInfo.authors}
+                    data-description={result.volumeInfo.description}
+                    data-image={result.volumeInfo.imageLinks.smallThumbnail}
+                    data-link={result.volumeInfo.infoLink}
+                    onClick={handleSaveBook}
+                  >
                     Save
                   </button>
                 </div>
               </div>
               <div className="col-2">
                 <img
-                  src={result.volumeInfo.imageLinks.smallThumbnail}
+                  src={
+                    result.volumeInfo.imageLinks
+                      ? result.volumeInfo.imageLinks.smallThumbnail
+                      : "http://via.placeholder.com/125x190"
+                  }
                   alt="Book Image"
                 />
               </div>

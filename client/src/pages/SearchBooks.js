@@ -6,13 +6,7 @@ import SearchResults from "../components/SearchResults";
 class SearchBooks extends Component {
   state = {
     search: [],
-    results: "",
-    books: [],
-    title: "",
-    authors: [],
-    description: "",
-    image: "",
-    link: ""
+    results: ""
   };
 
   handleInputChange = event => {
@@ -29,6 +23,18 @@ class SearchBooks extends Component {
         this.setState({ results: res.data.items });
       })
       .catch(err => this.setState({ error: err.message }));
+  };
+
+  handleSaveBook = event => {
+    event.preventDefault();
+    const data = event.target.dataset;
+    API.saveBook({
+      title: data.title,
+      authors: data.author,
+      description: data.description,
+      image: data.image,
+      link: data.link
+    }).catch(err => console.log(err));
   };
 
   render() {
@@ -53,7 +59,10 @@ class SearchBooks extends Component {
         </div>
         <div className="bg-light p-3">
           {this.state.results ? (
-            <SearchResults results={this.state.results} />
+            <SearchResults
+              results={this.state.results}
+              handleSaveBook={this.handleSaveBook}
+            />
           ) : (
             <div>
               <h3 className="pb-3">Results</h3>
