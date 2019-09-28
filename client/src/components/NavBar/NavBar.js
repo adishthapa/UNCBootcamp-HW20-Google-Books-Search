@@ -2,7 +2,7 @@ import React from "react";
 
 function NavBar() {
   return (
-    <nav className="navbar navbar-expand-md bg-light mb-3">
+    <nav className="navbar navbar-expand-md bg-light mb-4">
       <span className="navbar-brand mb-0 h1">
         <span className="blue">G</span>
         <span className="red">o</span>
