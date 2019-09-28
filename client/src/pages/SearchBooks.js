@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import API from "../utils/API";
-import Jumbotron from "../components/Jumbotron";
 import { Input, FormBtn } from "../components/Form";
 import SearchResults from "../components/SearchResults";
 
-class Books extends Component {
+class SearchBooks extends Component {
   state = {
     search: [],
     results: "",
@@ -34,8 +33,7 @@ class Books extends Component {
 
   render() {
     return (
-      <div className="container-fluid">
-        <Jumbotron />
+      <div id="Search">
         <div className="bg-light p-3 mb-4">
           <h3 className="pb-3">Book Search</h3>
           <h6 className="pb-2">Book:</h6>
@@ -67,4 +65,4 @@ class Books extends Component {
   }
 }
 
-export default Books;
+export default SearchBooks;

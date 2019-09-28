@@ -1,1 +1,2 @@
-export { default } from "./Books.js";
+export { default } from "./SearchBooks.js";
+export {default } from "./SavedBooks.js";
