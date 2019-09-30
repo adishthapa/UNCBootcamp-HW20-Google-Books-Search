@@ -1,24 +1,21 @@
 import React from "react";
 
-function SearchResults({ results, handleSaveBook }) {
+function ListSavedBooks({ books }) {
   return (
     <div>
-      <h3 className="pb-3">Results</h3>
+      <h3 className="pb-3">Saved Books</h3>
+      {console.log(books)}
       <div className="row">
         <div className="col">
-          {results.map((result, index) => (
+          {books.map((book, index) => (
             <div key={index} className="row p-3 m-3 border">
               <div className="col-10">
-                <h3>
-                  {result.volumeInfo.title
-                    ? result.volumeInfo.title
-                    : "No Title Available"}
-                </h3>
+                <h3>{book.title ? book.title : "No Title Available"}</h3>
                 <p>
                   Author:&nbsp;
-                  {result.volumeInfo.authors
-                    ? result.volumeInfo.authors.map((author, index) =>
-                        index === result.volumeInfo.authors.length - 1
+                  {book.authors
+                    ? book.authors.map((author, index) =>
+                        index === book.authors.length - 1
                           ? author
                           : author + ", "
                       )
@@ -29,11 +26,7 @@ function SearchResults({ results, handleSaveBook }) {
                 <div className="btn-group d-flex" role="group">
                   <button type="button" className="btn btn-secondary m-2">
                     <a
-                      href={
-                        result.volumeInfo.infoLink
-                          ? result.volumeInfo.infoLink
-                          : "https://www.google.com/"
-                      }
+                      href={book.link ? book.link : "https://www.google.com/"}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -43,22 +36,17 @@ function SearchResults({ results, handleSaveBook }) {
                   <button
                     type="button"
                     className="btn btn-secondary m-2"
-                    data-title={result.volumeInfo.title}
-                    data-authors={result.volumeInfo.authors}
-                    data-description={result.volumeInfo.description}
-                    data-image={result.volumeInfo.imageLinks.smallThumbnail}
-                    data-link={result.volumeInfo.infoLink}
-                    onClick={handleSaveBook}
+                    data-title={book._id}
                   >
-                    Save
+                    Delete
                   </button>
                 </div>
               </div>
               <div className="col-2">
                 <img
                   src={
-                    result.volumeInfo.imageLinks
-                      ? result.volumeInfo.imageLinks.smallThumbnail
+                    book.image
+                      ? book.image
                       : "http://via.placeholder.com/125x190"
                   }
                   alt="Book"
@@ -66,8 +54,8 @@ function SearchResults({ results, handleSaveBook }) {
               </div>
               <div className="col-10">
                 <p>
-                  {result.volumeInfo.description
-                    ? result.volumeInfo.description
+                  {book.description
+                    ? book.description
                     : "No Description Available"}
                 </p>
               </div>
@@ -79,4 +67,4 @@ function SearchResults({ results, handleSaveBook }) {
   );
 }
 
-export default SearchResults;
+export default ListSavedBooks;

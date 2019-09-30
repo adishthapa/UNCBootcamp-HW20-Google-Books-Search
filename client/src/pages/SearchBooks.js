@@ -30,7 +30,7 @@ class SearchBooks extends Component {
     const data = event.target.dataset;
     API.saveBook({
       title: data.title,
-      authors: data.author,
+      authors: data.authors.split(","),
       description: data.description,
       image: data.image,
       link: data.link
