@@ -1,6 +1,6 @@
 import React from "react";
 
-function ListSavedBooks({ books }) {
+function ListSavedBooks({ books, handleDeleteBooks }) {
   return (
     <div>
       <h3 className="pb-3">Saved Books</h3>
@@ -36,7 +36,8 @@ function ListSavedBooks({ books }) {
                   <button
                     type="button"
                     className="btn btn-secondary m-2"
-                    data-title={book._id}
+                    data-id={book._id}
+                    onClick={handleDeleteBooks}
                   >
                     Delete
                   </button>

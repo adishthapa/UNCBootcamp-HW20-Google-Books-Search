@@ -8,12 +8,20 @@ class SavedBooks extends Component {
   };
 
   componentDidMount() {
-    this.loadBooks();
+    this.handleLoadBooks();
   }
 
-  loadBooks = () => {
+  handleLoadBooks = () => {
     API.getBooks()
       .then(res => this.setState({ books: res.data }))
+      .catch(err => console.log(err));
+  };
+
+  handleDeleteBooks = event => {
+    event.preventDefault();
+    const id = event.target.dataset.id;
+    API.deleteBook(id)
+      .then(this.handleLoadBooks())
       .catch(err => console.log(err));
   };
 
@@ -21,7 +29,10 @@ class SavedBooks extends Component {
     return (
       <div className="bg-light p-3">
         {this.state.books ? (
-          <ListSavedBooks books={this.state.books} />
+          <ListSavedBooks
+            books={this.state.books}
+            handleDeleteBooks={this.handleDeleteBooks}
+          />
         ) : (
           <div>
             <h3 className="pb-3">Saved Books</h3>
