@@ -21,7 +21,7 @@ class SavedBooks extends Component {
     event.preventDefault();
     const id = event.target.dataset.id;
     API.deleteBook(id)
-      .then(this.handleLoadBooks())
+      .then(document.location.reload())
       .catch(err => console.log(err));
   };
 

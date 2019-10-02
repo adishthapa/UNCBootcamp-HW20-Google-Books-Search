@@ -43,11 +43,27 @@ function SearchResults({ results, handleSaveBook }) {
                   <button
                     type="button"
                     className="btn btn-secondary m-2"
-                    data-title={result.volumeInfo.title}
-                    data-authors={result.volumeInfo.authors}
-                    data-description={result.volumeInfo.description}
-                    data-image={result.volumeInfo.imageLinks.smallThumbnail}
-                    data-link={result.volumeInfo.infoLink}
+                    data-title={
+                      result.volumeInfo.title ? result.volumeInfo.title : ""
+                    }
+                    data-authors={
+                      result.volumeInfo.authors ? result.volumeInfo.authors : ""
+                    }
+                    data-description={
+                      result.volumeInfo.description
+                        ? result.volumeInfo.description
+                        : ""
+                    }
+                    data-image={
+                      result.volumeInfo.imageLinks
+                        ? result.volumeInfo.imageLinks.smallThumbnail
+                        : ""
+                    }
+                    data-link={
+                      result.volumeInfo.infoLink
+                        ? result.volumeInfo.infoLink
+                        : ""
+                    }
                     onClick={handleSaveBook}
                   >
                     Save

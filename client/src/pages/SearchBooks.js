@@ -34,7 +34,9 @@ class SearchBooks extends Component {
       description: data.description,
       image: data.image,
       link: data.link
-    }).catch(err => console.log(err));
+    })
+      .then(alert("Book has been added."))
+      .catch(err => console.log(err));
   };
 
   render() {
